@@ -1,11 +1,5 @@
-import json
-import numpy as np
-import torch
 from transformers import AutoTokenizer
 from auto_gptq import AutoGPTQForCausalLM
-import base64
-from io import BytesIO
-
 
 class InferlessPythonModel:
   def initialize(self):
@@ -25,6 +19,5 @@ class InferlessPythonModel:
     result = self.tokenizer.decode(output[0])
     return {"generated_result": result}
 
-  def finalize(self,args):
-    self.tokenizer = None
+  def finalize(self):
     self.model = None
